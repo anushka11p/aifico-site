@@ -1,4 +1,4 @@
-server/.env
-server/node_modules/
-.env
 node_modules/
+.env
+server/data/db.json
+.DS_Store

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Class — AIFICO Hindi Tuitions</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+
+<div class="app-shell">
+  <div class="app-frame">
+
+    <!-- ===================== NAV ===================== -->
+    <header class="app-nav">
+      <div class="brand" id="navBrand">
+        <span class="brand__mark" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3L1 8l11 5 9-4.09V17h2V8L12 3z" fill="currentColor"/>
+            <path d="M5 13.18v3.64L12 20l7-3.18v-3.64L12 16l-7-2.82z" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="brand__name">AIFICO
+          <span class="brand__sub">Hindi Tuitions</span>
+        </span>
+      </div>
+      <nav class="tabs" id="mainTabs">
+        <button class="tab is-active" id="tab-home" data-view="home">Home</button>
+        <button class="tab" id="tab-dashboard" data-view="dashboard">My Bookings</button>
+      </nav>
+      <div class="account" id="accountBox">
+        <button class="btn btn--secondary btn--sm" id="navLoginBtn">Login</button>
+      </div>
+    </header>
+
+    <div class="toast" id="toast" hidden></div>
+
+    <!-- ===================== MAIN CONTENT WRAPPER ===================== -->
+    <main>
+
+      <!-- ===================== LANDING PAGE (VIEW: HOME) ===================== -->
+      <div id="view-home">
+        <!-- HERO -->
+        <section class="hero">
+          <div class="hero__inner">
+            <span class="hero__eyebrow">Premier Hindi Tuition Centre</span>
+            <h1 class="hero__title">Unlock Your Hindi Potential</h1>
+            <p class="hero__lede">Specialised tutoring in Hindi Grammar, Literature, and board exam preparation with qualified tutors dedicated to your success. Keep track of every class and rupee in one place.</p>
+            <div class="hero__ctas">
+              <button class="btn btn--primary" id="heroBookBtn">Enrol Now</button>
+              <button class="btn btn--secondary" id="heroDashboardBtn">View My Bookings</button>
+            </div>
+          </div>
+
+          <!-- STATS -->
+          <div class="stat-chips">
+            <div class="stat-chip">
+              <span class="stat-chip__val">500+</span>
+              <span class="stat-chip__label">Students Taught</span>
+            </div>
+            <div class="stat-chip">
+              <span class="stat-chip__val">15+</span>
+              <span class="stat-chip__label">Qualified Tutors</span>
+            </div>
+            <div class="stat-chip">
+              <span class="stat-chip__val">95%</span>
+              <span class="stat-chip__label">Success Rate</span>
+            </div>
+            <div class="stat-chip">
+              <span class="stat-chip__val">8+</span>
+              <span class="stat-chip__label">Years Experience</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- WHY CHOOSE US -->
+        <section class="section section--alt">
+          <div class="section__head">
+            <h2 class="section__title">Why Choose Us?</h2>
+            <p class="section__subtitle">Dedicated to helping students build confidence and master the language at every academic stage.</p>
+          </div>
+
+          <div class="features-grid">
+            <div class="features-list">
+              <div class="feature-item">
+                <div class="feature-icon">🎓</div>
+                <div class="feature-content">
+                  <h4>Qualified Tutors</h4>
+                  <p>Our team consists of qualified Hindi teachers with university degrees and extensive tutoring experience.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">📅</div>
+                <div class="feature-content">
+                  <h4>Flexible Scheduling</h4>
+                  <p>Choose class slots that fit your busy schedule, with easy options for weekend and holiday sessions.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">📈</div>
+                <div class="feature-content">
+                  <h4>Proven Results</h4>
+                  <p>95% of our students show significant improvement in their grammar, reading comprehension, and grades in the first term.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">💻</div>
+                <div class="feature-content">
+                  <h4>Online & In-Person</h4>
+                  <p>Hybrid options available. Join live classes from the comfort of home or attend sessions in person at our center.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- COMMITMENT CARD -->
+            <div class="commitment-card">
+              <h3>Our Commitment</h3>
+              <ul class="commitment-list">
+                <li>Small class sizes for personalized attention</li>
+                <li>Regular progress assessments and monthly reports</li>
+                <li>Experienced Hindi Grammar and Literature specialists</li>
+                <li>Flexible learning options (online and in-person)</li>
+                <li>Supportive and encouraging student environment</li>
+                <li>Targeted exam preparation and study skills</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- OUR SUBJECTS -->
+        <section class="section">
+          <div class="section__head">
+            <h2 class="section__title">Our Subjects</h2>
+            <p class="section__subtitle">Comprehensive tutoring across core areas of Hindi academic curriculum.</p>
+          </div>
+
+          <div class="subjects-grid">
+            <div class="subject-card">
+              <div class="subject-icon">✍️</div>
+              <h4>Hindi Grammar</h4>
+            </div>
+            <div class="subject-card">
+              <div class="subject-icon">📖</div>
+              <h4>Hindi Literature</h4>
+            </div>
+            <div class="subject-card">
+              <div class="subject-icon">💬</div>
+              <h4>Conversational Hindi</h4>
+            </div>
+            <div class="subject-card">
+              <div class="subject-icon">📝</div>
+              <h4>Board Exam Prep</h4>
+            </div>
+          </div>
+        </section>
+
+        <!-- CTA BANNER -->
+        <section class="cta-banner">
+          <div class="cta-banner__inner">
+            <h2>Ready to Get Started?</h2>
+            <p>Contact us today to discuss your learning goals and find the perfect tutor for your needs.</p>
+            <div class="cta-contact-info">
+              <div class="cta-info-item">
+                <span>📞 (+91) 99621-67605</span>
+              </div>
+              <div class="cta-info-item">
+                <span>✉️ scovioin@gmail.com</span>
+              </div>
+              <div class="cta-info-item">
+                <span>📍 Bangalore, India</span>
+              </div>
+            </div>
+            <button class="btn btn--accent" id="ctaEnquireBtn">Enquire Now - Free Consultation</button>
+          </div>
+        </section>
+      </div>
+
+      <!-- ===================== DASHBOARD VIEW ===================== -->
+      <div id="view-dashboard" class="page" hidden>
+        <div class="view-head">
+          <p class="eyebrow">Ledger</p>
+          <h2>My Bookings</h2>
+          <p class="muted">All registered courses, payments, and class schedule history tracked in one page.</p>
+        </div>
+
+        <div class="card" id="bookingsWrap">
+          <div class="empty-state" id="emptyState">
+            <p class="empty-state__title">No bookings yet</p>
+            <p class="muted">Once you register a class, it'll show up here with its fee, attendance, and schedule status.</p>
+            <button class="btn btn--primary" id="emptyBookBtn">Book Your First Class</button>
+          </div>
+
+          <div class="table-scroll" id="tableScroll" hidden>
+            <table class="ledger-table">
+              <thead>
+                <tr>
+                  <th>Student</th>
+                  <th>Subject</th>
+                  <th>Duration</th>
+                  <th>Classes Held</th>
+                  <th>Fees</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="bookingsBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- ===================== SUMMARY BAR ===================== -->
+    <footer class="summary-bar" id="summaryBar" hidden>
+      <div class="summary-bar__stats">
+        <span class="summary-bar__label">Your Ledger</span>
+        <span id="summaryText">0 bookings</span>
+      </div>
+      <div class="summary-bar__progress" id="summaryProgressWrap" hidden>
+        <div class="summary-bar__track"><div class="summary-bar__fill" id="summaryProgressFill"></div></div>
+        <span id="summaryProgressLabel"></span>
+      </div>
+      <button class="btn btn--accent" id="summaryAddBtn">+ New Booking</button>
+    </footer>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="app-footer">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>AIFICO Hindi Tuitions</h3>
+          <p>Helping students excel in Hindi language and achieve academic success for over 8 years.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Subjects</h4>
+          <ul>
+            <li>Hindi Grammar</li>
+            <li>Hindi Literature</li>
+            <li>Conversational Hindi</li>
+            <li>Board Exam Prep</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li>Individual Tutoring</li>
+            <li>Group Classes</li>
+            <li>Online Learning</li>
+            <li>Exam Preparation</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li>📞 (+91) 99621-67605</li>
+            <li>✉️ scovioin@gmail.com</li>
+            <li>📍 Bangalore, India</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 AIFICO Hindi Tuitions. All rights reserved.</p>
+      </div>
+    </footer>
+
+  </div>
+</div>
+
+<!-- ===================== SIGN-IN MODAL ===================== -->
+<div class="modal-overlay" id="signinOverlay" hidden>
+  <div class="card modal-card">
+    <button class="modal-close" id="signinClose" aria-label="Close">&times;</button>
+    <h3>Sign in to continue</h3>
+    <p class="muted">Please log in to submit a booking request or view your dashboard ledger.</p>
+    <div id="googleBtnHolder" class="google-btn-holder" style="margin-top: 24px;"></div>
+  </div>
+</div>
+
+<!-- ===================== BOOKING ENROLMENT MODAL ===================== -->
+<div class="modal-overlay" id="bookingOverlay" hidden>
+  <div class="card modal-card" style="max-width: 680px;">
+    <button class="modal-close" id="bookingClose" aria-label="Close">&times;</button>
+    <h3>New Class Booking</h3>
+    <p class="muted">Fill in student details and course details to register a class.</p>
+
+    <form id="bookingForm">
+      <div class="form-section">
+        <h3 class="form-section__title">Student Details</h3>
+        <div class="grid grid--2">
+          <label class="field">
+            <span>Parent / Guardian Name *</span>
+            <input type="text" name="parentName" placeholder="e.g. Radhika Prasad" required>
+          </label>
+          <label class="field">
+            <span>Student Name *</span>
+            <input type="text" name="studentName" placeholder="e.g. Anushka Prasad" required>
+          </label>
+          <label class="field">
+            <span>Class / Grade *</span>
+            <input type="text" name="studentClass" placeholder="e.g. Grade 10 / B.Tech Yr 2" required>
+          </label>
+          <label class="field">
+            <span>Subject *</span>
+            <input type="text" name="subject" placeholder="e.g. Hindi Grammar, Hindi Literature" required>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3 class="form-section__title">Course Duration</h3>
+        <div class="grid grid--2">
+          <label class="field">
+            <span>Start Date *</span>
+            <input type="date" name="startDate" required>
+          </label>
+          <label class="field">
+            <span>End Date *</span>
+            <input type="date" name="endDate" required>
+          </label>
+          <label class="field">
+            <span>Total Classes Allocated *</span>
+            <input type="number" name="totalClasses" min="1" placeholder="e.g. 24" required>
+          </label>
+          <label class="field">
+            <span>Request Status</span>
+            <select name="requestStatus">
+              <option value="requested">Requested</option>
+              <option value="booked">Booked</option>
+              <option value="confirmed">Confirmed</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3 class="form-section__title">Fees</h3>
+        <div class="grid grid--3">
+          <label class="field">
+            <span>Total Fees Amount (₹) *</span>
+            <input type="number" name="totalFees" min="0" step="1" placeholder="e.g. 12000" required>
+          </label>
+          <label class="field">
+            <span>Advance Paid (₹) *</span>
+            <input type="number" name="advancePaid" min="0" step="1" placeholder="e.g. 3000" required>
+          </label>
+          <label class="field">
+            <span>Deduction Status</span>
+            <select name="deductionStatus">
+              <option value="pending">Pending deduction</option>
+              <option value="partial">Partially deducted</option>
+              <option value="cleared">Fully settled</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3 class="form-section__title">Extra Classes</h3>
+        <div class="grid grid--2">
+          <label class="field field--checkbox">
+            <input type="checkbox" name="extraNeeded" id="extraNeeded">
+            <span>Extra classes needed beyond this booking</span>
+          </label>
+          <label class="field" id="extraCountField" hidden>
+            <span>How many extra classes</span>
+            <input type="number" name="extraCount" min="1" placeholder="e.g. 4">
+          </label>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="btn btn--secondary" id="bookingCancelBtn">Cancel</button>
+        <button type="submit" class="btn btn--primary" id="submitBookingBtn">Confirm Booking</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ===================== RESCHEDULE MODAL ===================== -->
+<div class="modal-overlay" id="rescheduleOverlay" hidden>
+  <div class="card modal-card">
+    <button class="modal-close" id="rescheduleClose" aria-label="Close">&times;</button>
+    <h3>Reschedule Class</h3>
+    <p class="muted" id="rescheduleSubtitle"></p>
+    <form id="rescheduleForm">
+      <label class="field">
+        <span>New Date *</span>
+        <input type="date" name="newDate" required>
+      </label>
+      <label class="field">
+        <span>Reason (optional)</span>
+        <input type="text" name="reason" placeholder="e.g. Exam clash, tutor unavailable">
+      </label>
+      <div class="form-actions">
+        <button type="submit" class="btn btn--primary">Save Reschedule</button>
+      </div>
+    </form>
+    <div class="reschedule-log" id="rescheduleLog"></div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
