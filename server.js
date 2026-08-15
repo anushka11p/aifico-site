@@ -4,6 +4,7 @@ const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
+const db = require("./db");
 const authRoutes = require("./routes/auth");
 const bookingRoutes = require("./routes/bookings");
 
@@ -36,6 +37,13 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(publicDir, "index.html"));
 });
 
-app.listen(PORT, () => {
-  console.log(`AIFICO booking server running at http://localhost:${PORT}`);
-});
+db.initDb()
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`AIFICO booking server running at http://localhost:${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error("Failed to initialize database:", err.message);
+    process.exit(1);
+  });

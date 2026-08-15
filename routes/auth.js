@@ -25,7 +25,6 @@ function issueSession(res, user) {
   });
 }
 
-// POST /api/auth/google  { credential: <Google ID token> }
 router.post("/google", async (req, res) => {
   const { credential } = req.body;
   if (!credential) return res.status(400).json({ error: "Missing Google credential." });
@@ -42,7 +41,7 @@ router.post("/google", async (req, res) => {
       audience: GOOGLE_CLIENT_ID,
     });
     const payload = ticket.getPayload();
-    const user = db.findOrCreateUser({
+    const user = await db.findOrCreateUser({
       email: payload.email,
       name: payload.name,
       picture: payload.picture,
@@ -55,10 +54,12 @@ router.post("/google", async (req, res) => {
   }
 });
 
-// POST /api/auth/demo — signs in as a fixed demo account, no Google needed.
-// Useful for local testing before OAuth credentials are configured.
-router.post("/demo", (req, res) => {
-  const user = db.findOrCreateUser({
+router.post("/demo", async (req, res) => {
+  const demoAllowed = process.env.NODE_ENV !== "production" || process.env.ALLOW_DEMO_LOGIN === "true";
+  if (!demoAllowed) {
+    return res.status(404).json({ error: "Not found." });
+  }
+  const user = await db.findOrCreateUser({
     email: "demo.parent@aifico.local",
     name: "Demo Parent",
     picture: "",
@@ -67,7 +68,6 @@ router.post("/demo", (req, res) => {
   res.json({ user: { id: user.id, email: user.email, name: user.name, picture: user.picture } });
 });
 
-// GET /api/auth/me — returns the signed-in user, if any.
 router.get("/me", (req, res) => {
   const token = req.cookies && req.cookies.aifico_session;
   if (!token) return res.json({ user: null });
@@ -79,7 +79,6 @@ router.get("/me", (req, res) => {
   }
 });
 
-// POST /api/auth/signout
 router.post("/signout", (req, res) => {
   res.clearCookie("aifico_session");
   res.json({ ok: true });
